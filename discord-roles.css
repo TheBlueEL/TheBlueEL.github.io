@@ -1,0 +1,131 @@
+
+/* ============================================
+   GESTION DES RÔLES
+   ============================================ */
+
+.roles-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+    left: 20px;
+}
+
+.roles-header h2 {
+    font-size: 20px;
+    font-weight: 600;
+    color: #ffffff;
+}
+
+/* Liste des rôles */
+.roles-list {
+    background-color: #2b2d31;
+    border-radius: 5px;
+    overflow: hidden;
+}
+
+.role-item {
+    display: flex;
+    align-items: center;
+    padding: 12px 16px;
+    border-bottom: 1px solid #1f2023;
+    transition: all 0.15s ease;
+    cursor: pointer;
+    position: relative;
+}
+
+.role-item:last-child {
+    border-bottom: none;
+}
+
+.role-item:hover {
+    background-color: #35373c;
+}
+
+.role-color {
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    margin-right: 12px;
+    flex-shrink: 0;
+}
+
+.role-name {
+    font-size: 16px;
+    font-weight: 500;
+    color: #ffffff;
+    flex: 1;
+}
+
+.role-members {
+    display: flex;
+    align-items: center;
+    margin-right: 16px;
+    font-size: 14px;
+    color: #b9bbbe;
+}
+
+/* Permissions */
+.permissions-category {
+    margin-bottom: 32px;
+}
+
+.permissions-category h3 {
+    font-size: 12px;
+    font-weight: 700;
+    color: #f2f3f5;
+    text-transform: uppercase;
+    letter-spacing: 0.02em;
+    margin-bottom: 16px;
+}
+
+.permission-item {
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    padding: 16px 0;
+    border-bottom: 1px solid #3e4349;
+    transition: all 0.2s ease;
+}
+
+.permission-name {
+    font-weight: 500;
+    font-size: 16px;
+    color: #f2f3f5;
+    margin-bottom: 4px;
+}
+
+.permission-description {
+    font-size: 14px;
+    color: #b5bac1;
+    line-height: 20px;
+}
+
+.toggle-switch {
+    width: 40px;
+    height: 24px;
+    background-color: #4e5058;
+    border-radius: 12px;
+    position: relative;
+    cursor: pointer;
+    transition: background-color 0.15s ease;
+}
+
+.toggle-switch.active {
+    background-color: #5865f2;
+}
+
+.toggle-slider {
+    width: 18px;
+    height: 18px;
+    background-color: #ffffff;
+    border-radius: 50%;
+    position: absolute;
+    top: 3px;
+    left: 3px;
+    transition: transform 0.15s ease;
+}
+
+.toggle-switch.active .toggle-slider {
+    transform: translateX(16px);
+}

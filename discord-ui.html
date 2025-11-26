@@ -1,0 +1,921 @@
+<!doctype html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Discord</title>
+        <link rel="icon" href="assets/discordlogo.png" type="image/png" />
+        <link rel="stylesheet" href="discord-style.css" />
+    </head>
+    <body>
+        <script src="discord-scanner.js"></script>
+        <div class="discord-container">
+            <!-- Sidebar gauche avec serveurs -->
+            <div class="servers-sidebar">
+                <div class="server-icon home-icon">
+                    <img
+                        src="assets/discordwhitelogo.png"
+                        alt="Discord Home"
+                        class="discord-home-icon"
+                    />
+                </div>
+                <div class="server-separator"></div>
+                <div class="server-icon active"></div>
+            </div>
+
+            <!-- Menu déroulant du serveur -->
+            <div id="serverDropdown" class="server-dropdown hidden">
+                <div class="dropdown-item">
+                    <div class="dropdown-item-content">
+                        <div class="dropdown-item-title">Server Boost</div>
+                    </div>
+                    <img
+                        src="assets/ServerBoostSettings.png"
+                        alt="Server Boost"
+                        class="dropdown-item-icon"
+                    />
+                </div>
+
+                <div class="dropdown-item">
+                    <div class="dropdown-item-content">
+                        <div class="dropdown-item-title">Server Tag</div>
+                    </div>
+                </div>
+
+                <div class="dropdown-separator"></div>
+
+                <div class="dropdown-item">
+                    <div class="dropdown-item-content">
+                        <div class="dropdown-item-title">Invite People</div>
+                    </div>
+                    <img
+                        src="assets/invitpeople-icon.png"
+                        alt="Invite People"
+                        class="dropdown-item-icon"
+                    />
+                </div>
+
+                <div class="dropdown-item" onclick="showServerSettings()">
+                    <div class="dropdown-item-content">
+                        <div class="dropdown-item-title">Server Settings</div>
+                    </div>
+                    <img
+                        src="assets/setting-icon.png"
+                        alt="Settings"
+                        class="dropdown-item-icon"
+                    />
+                </div>
+
+                <div class="dropdown-item" onclick="showServerSettings()">
+                    <div class="dropdown-item-content">
+                        <div class="dropdown-item-title">Server Insights</div>
+                    </div>
+                    <img
+                        src="assets/serverinsightssettings.png"
+                        alt="Server Insights"
+                        class="dropdown-item-icon"
+                    />
+                </div>
+
+                <div class="dropdown-item">
+                    <div class="dropdown-item-content">
+                        <div class="dropdown-item-title">Create Channel</div>
+                    </div>
+                    <img
+                        src="assets/createchannel-icon.png"
+                        alt="Create Channel"
+                        class="dropdown-item-icon"
+                    />
+                </div>
+
+                <div class="dropdown-item">
+                    <div class="dropdown-item-content">
+                        <div class="dropdown-item-title">Create Category</div>
+                    </div>
+                    <img
+                        src="assets/createcategorysettings.png"
+                        alt="Create Category"
+                        class="dropdown-item-icon"
+                    />
+                </div>
+
+                <div class="dropdown-item">
+                    <div class="dropdown-item-content">
+                        <div class="dropdown-item-title">Create Event</div>
+                    </div>
+                    <img
+                        src="assets/createeventssettings.png"
+                        alt="Create Event"
+                        class="dropdown-item-icon"
+                    />
+                </div>
+
+                <div class="dropdown-item">
+                    <div class="dropdown-item-content">
+                        <div class="dropdown-item-title">App Directory</div>
+                    </div>
+                    <img
+                        src="assets/appdirectorysettings.png"
+                        alt="App Directory"
+                        class="dropdown-item-icon"
+                    />
+                </div>
+
+                <div class="dropdown-separator"></div>
+
+                <div class="dropdown-item">
+                    <div class="dropdown-item-content">
+                        <div class="dropdown-item-title">Show All Channels</div>
+                    </div>
+                    <img
+                        src="assets/checkboxoff.png"
+                        alt="Server Analytics"
+                        class="dropdown-item-icon"
+                    />
+                </div>
+
+                <div class="dropdown-item">
+                    <div class="dropdown-item-content">
+                        <div class="dropdown-item-title">
+                            Notification Settings
+                        </div>
+                    </div>
+                    <img
+                        src="assets/notificationssettings.png"
+                        alt="Notification Settings"
+                        class="dropdown-item-icon"
+                    />
+                </div>
+
+                <div class="dropdown-item">
+                    <div class="dropdown-item-content">
+                        <div class="dropdown-item-title">Privacy Settings</div>
+                    </div>
+                    <img
+                        src="assets/privacysettings.png"
+                        alt="Privacy Settings"
+                        class="dropdown-item-icon"
+                    />
+                </div>
+
+                <div class="dropdown-separator"></div>
+
+                <div class="dropdown-item">
+                    <div class="dropdown-item-content">
+                        <div class="dropdown-item-title">
+                            Edit Per-server Profile
+                        </div>
+                    </div>
+                    <img
+                        src="assets/editperserverprofilesettings.png"
+                        alt="Edit Per-server Profile"
+                        class="dropdown-item-icon"
+                    />
+                </div>
+
+                <div class="dropdown-item">
+                    <div class="dropdown-item-content">
+                        <div class="dropdown-item-title">
+                            Hide Muted Channels
+                        </div>
+                    </div>
+                    <img
+                        src="assets/checkboxoff.png"
+                        alt="Hide Muted Channels"
+                        class="dropdown-item-icon"
+                    />
+                </div>
+
+                <div class="dropdown-separator"></div>
+
+                <div class="dropdown-item">
+                    <div class="dropdown-item-red-content">
+                        <div class="dropdown-item-title" style="color: #f16f6c">
+                            Leave Server
+                        </div>
+                    </div>
+                    <img
+                        src="assets/leaveserversettings.png"
+                        alt="Leave Server"
+                        class="dropdown-item-red-icon"
+                        style="color: #f16f6c"
+                    />
+                </div>
+            </div>
+
+            <!-- Sidebar des channels -->
+            <div class="channels-sidebar">
+                <div class="server-header" onclick="showServerDropdown(event)">
+                    <h3 id="server-name">Loading...</h3>
+                    <svg
+                        class="dropdown-arrow"
+                        width="18"
+                        height="18"
+                        viewBox="0 0 24 24"
+                    >
+                        <path
+                            fill="currentColor"
+                            d="M7.41,8.58L12,13.17L16.59,8.58L18,10L12,16L6,10L7.41,8.58Z"
+                        />
+                    </svg>
+                </div>
+
+                <div class="boost-indicator"></div>
+
+                <div class="channels-container">
+                    <div class="channel-category">
+                        <div class="category-header">
+                            <span>LOADING...</span>
+                            <svg width="12" height="12" viewBox="0 0 24 24">
+                                <path
+                                    fill="currentColor"
+                                    d="M8.59,16.58L13.17,12L8.59,7.41L10,6L16,12L10,18L8.59,16.58Z"
+                                />
+                            </svg>
+                        </div>
+                        <div class="channel-list">
+                            <div class="channel-item active"></div>
+                        </div>
+                    </div>
+
+                    <div class="channel-category">
+                        <div class="category-header"></div>
+                    </div>
+                </div>
+
+                <!-- Section utilisateur en bas -->
+                <div class="user-section">
+                    <img
+                        src="https://cdn.discordapp.com/embed/avatars/0.png"
+                        alt="User Avatar"
+                        class="user-avatar"
+                    />
+                    <div class="user-info">
+                        <div class="user-name">Discord</div>
+                        <div class="user-status">Online</div>
+                    </div>
+                    <div class="user-controls">
+                        <button
+                            class="user-control-btn"
+                            title="Couper le micro"
+                        >
+                            <img
+                                src="assets/unmute-icon.png"
+                                alt="Unmute"
+                                width="20"
+                                height="20"
+                            />
+                        </button>
+                        <button class="user-control-btn" title="Couper le son">
+                            <img
+                                src="assets/undeafen-icon.png"
+                                alt="Undeafen"
+                                width="20"
+                                height="20"
+                            />
+                        </button>
+                        <button class="user-control-btn" title="Paramètres">
+                            <img
+                                src="assets/setting-icon.png"
+                                alt="Settings"
+                                width="20"
+                                height="20"
+                            />
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Zone principale -->
+            <div class="main-content">
+                <div class="chat-header">
+                    <div class="chat-header-main">
+                        <img
+                            src="assets/channel-icon.png"
+                            alt="Channel"
+                            class="channel-icon"
+                        />
+                        <span class="channel-name">general</span>
+                    </div>
+                    <div class="chat-header-tools">
+                        <button class="header-tool-btn" title="Threads">
+                            <img
+                                src="assets/threadicon.png"
+                                class="header-tool-btn"
+                                alt="Threads"
+                            />
+                        </button>
+
+                        <button class="header-tool-btn" title="Notifications">
+                            <img
+                                src="assets/notificationonicon.png"
+                                class="header-tool-btn"
+                                alt="Notifications"
+                            />
+                        </button>
+                        <button class="header-tool-btn" title="Pinned Messages">
+                            <img
+                                src="assets/messagepinnedicon.png"
+                                class="header-tool-btn"
+                                alt="Pinned Messages"
+                            />
+                        </button>
+
+                        <button
+                            class="header-tool-btn"
+                            title="Members"
+                            id="members-toggle-btn"
+                        >
+                            <img
+                                src="assets/showmembericon.png"
+                                class="header-tool-btn"
+                                alt="Member Toggle"
+                            />
+                        </button>
+
+                        <div class="members-search-bar">
+                            <input
+                                type="text"
+                                placeholder="Search"
+                                class="members-search-input"
+                            />
+                            <img
+                                src="assets/searchbaricon.png"
+                                class="members-search-icon"
+                                alt="Search Bar Icon"
+                            />
+                        </div>
+                    </div>
+                </div>
+
+                <div class="chat-messages">
+                    <div class="welcome-message">
+                        <h3>Welcome to #general!</h3>
+                        <p>This is the start of the #general channel.</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Sidebar des membres -->
+            <div class="members-sidebar">
+                <div class="members-container" id="membersContainer">
+                    <!-- Les membres seront chargés ici dynamiquement -->
+                </div>
+            </div>
+
+            <!-- Panel des paramètres serveur -->
+            <div id="serverSettings" class="server-settings hidden">
+                <div class="settings-sidebar">
+                    <div class="settings-category">
+                        <div class="category-title" id="serverCategoryTitle">
+                            Loading....
+                        </div>
+                        <div
+                            class="settings-item active"
+                            onclick="showServerProfile()"
+                        >
+                            Server Profile
+                        </div>
+                        <div class="settings-item">Server Tag</div>
+                        <div class="settings-item">Engagement</div>
+                        <div class="settings-item">Boost Perks</div>
+                    </div>
+
+                    <div class="settings-separator"></div>
+
+                    <div class="settings-category">
+                        <div class="category-title">EXPRESSION</div>
+                        <div class="settings-item">Emoji</div>
+                        <div class="settings-item">Stickers</div>
+                        <div class="settings-item">Soundboard</div>
+                    </div>
+
+                    <div class="settings-separator"></div>
+
+                    <div class="settings-category">
+                        <div class="category-title">PEOPLE</div>
+                        <div class="settings-item">
+                            Members
+                            <img
+                                src="assets/link-icon.png"
+                                class="settings-item-icon"
+                                alt="Link Icon"
+                            />
+                        </div>
+                        <div class="settings-item" onclick="showRoles()">
+                            Roles
+                        </div>
+                        <div class="settings-item">Invites</div>
+                        <div class="settings-item">Access</div>
+                    </div>
+
+                    <div class="settings-separator"></div>
+
+                    <div class="settings-category">
+                        <div class="category-title">APPS</div>
+                        <div class="settings-item">Integrations</div>
+                        <div class="settings-item">
+                            App Directory
+                            <img
+                                src="assets/link-icon.png"
+                                class="settings-item-icon"
+                                alt="Link Icon"
+                            />
+                        </div>
+                    </div>
+
+                    <div class="settings-separator"></div>
+
+                    <div class="settings-category">
+                        <div class="category-title">MODERATION</div>
+                        <div class="settings-item">Safety Setup</div>
+                        <div class="settings-item">Audit Log</div>
+                    </div>
+
+                    <div class="settings-separator"></div>
+
+                    <div class="settings-category">
+                        <div class="settings-item">Community Overview</div>
+                        <div class="settings-item">Onboarding</div>
+                        <div class="settings-item">Server Insights</div>
+                        <div class="settings-item">
+                            Server Web Page
+                            <img
+                                src="assets/beta-icon.png"
+                                class="settings-item-beta-icon"
+                                alt="Beta Icon"
+                            />
+                        </div>
+                    </div>
+
+                    <div class="settings-separator"></div>
+
+                    <div class="settings-category">
+                        <div class="settings-item">
+                            Server Boost Status
+                            <img
+                                src="assets/serverboost-icon.png"
+                                class="settings-item-icon"
+                                alt="Server Boost Icon"
+                            />
+                        </div>
+                        <div class="settings-item">Server Template</div>
+                    </div>
+                </div>
+
+                <div class="settings-content">
+                    <div id="serverProfileContent" class="settings-panel">
+                        <h2>Server Profile</h2>
+                        <p>
+                            Customize how your server appears in Invite links
+                            and, if enabled, in Server Discovery and Server
+                            Discovery Search messaging.
+                        </p>
+                        <!-- Contenu du profil serveur -->
+                    </div>
+
+                    <div id="rolesContent" class="settings-panel hidden">
+                        <div class="roles-header">
+                            <h2>Roles</h2>
+                        </div>
+                        <p>
+                            Use roles to group your server members and assign
+                            permissions.
+                        </p>
+
+                        <!-- Warning message -->
+                        <div class="roles-warning">
+                            <img
+                                src="assets/warning-icon.png"
+                                class="roles-warning-icon"
+                                alt="Warning Icon"
+                            />
+                            <div>
+                                <strong
+                                    >Manage Messages and Pin Messages</strong
+                                >
+                                are now separate permissions. On January 12,
+                                2026, <strong>Manage Messages</strong> will no
+                                longer provide the ability to pin messages. If
+                                needed, please update roles and channels that
+                                have this date. <a>Click here</a> to copy and
+                                apply the permissions for all roles and
+                                channels.
+                            </div>
+                        </div>
+
+                        <!-- Default Permissions section -->
+                        <div class="default-permissions">
+                            <div class="default-permissions-header">
+                                <div class="default-permissions-left">
+                                    <div class="default-permissions-icon">
+                                        <img
+                                            src="assets/everyone-role-icon.png"
+                                            alt="Default Permissions Icon"
+                                        />
+                                    </div>
+
+                                    <div class="default-permissions-text">
+                                        <div class="default-permissions-title">
+                                            Default Permissions
+                                        </div>
+                                        <div
+                                            class="default-permissions-subtitle"
+                                        >
+                                            @everyone • Applies to all server
+                                            members
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <svg width="24" height="24" viewBox="0 0 24 24">
+                                    <path
+                                        fill="currentColor"
+                                        d="M8.59,16.58L13.17,12L8.59,7.41L10,6L16,12L10,18L8.59,16.58Z"
+                                    />
+                                </svg>
+                            </div>
+                        </div>
+
+                        <!-- Search box -->
+                        <div class="search-create-container">
+                            <div class="roles-search">
+                                <img
+                                    src="assets/searchbaricon.png"
+                                    class="roles-search-icon"
+                                    alt="Search Icon"
+                                />
+                                <input type="text" placeholder="Search Roles" />
+                            </div>
+
+                            <button class="create-role-btn">Create Role</button>
+                        </div>
+                        <!-- Roles info -->
+                        <div class="roles-info">
+                            Members use the color of the highest role they have
+                            on this list. Drag roles to reorder them.
+                            <a href="#">Need help with roles?</a>
+                        </div>
+
+                        <!-- Table header -->
+                        <div class="roles-table-header">
+                            <div class="header-roles">ROLES — 0</div>
+                            <div class="header-members">MEMBERS</div>
+                        </div>
+
+                        <div class="roles-list" id="rolesList">
+                            <!-- Les rôles seront ajoutés ici dynamiquement -->
+                        </div>
+
+                        <div
+                            class="settings-close-wrapper"
+                            onclick="hideServerSettings()"
+                        >
+                            <img
+                                src="assets/close-button-icon.png"
+                                class="settings-close"
+                                alt="Close Button"
+                            />
+                            <div class="settings-close-text">ESC</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Menu contextuel pour les rôles -->
+            <div id="roleContextMenu" class="context-menu hidden">
+                <div class="context-item" onclick="copyRoleId()">
+                    Copy Role ID
+                </div>
+            </div>
+
+            <!-- Role editing modal -->
+            <div id="roleEditModal" class="role-edit-modal hidden">
+                <div class="role-edit-content">
+                    <div class="role-edit-body">
+                        <div class="role-edit-sidebar">
+                            <div class="back-button-container">
+                                <button
+                                    class="back-button"
+                                    onclick="closeRoleEditModal()"
+                                >
+                                    <img
+                                        src="assets/back-button-icon.png"
+                                        alt="Back"
+                                        class="back-button-icon"
+                                    />
+                                    BACK
+                                </button>
+                            </div>
+                            <div class="role-list-edit">
+                                <!-- Role list will be populated here -->
+                            </div>
+                        </div>
+
+                        <div class="role-edit-main">
+                            <div class="role-edit-title" id="roleEditTitle">
+                                EDIT ROLE — Discord
+                            </div>
+                            <div class="role-edit-tabs">
+                                <button
+                                    class="tab-button active"
+                                    onclick="showRoleTab('display')"
+                                >
+                                    Display
+                                </button>
+                                <button
+                                    class="tab-button"
+                                    onclick="showRoleTab('permissions')"
+                                >
+                                    Permissions
+                                </button>
+                                <button
+                                    class="tab-button"
+                                    onclick="showRoleTab('links')"
+                                >
+                                    Links
+                                </button>
+                                <button
+                                    class="tab-button"
+                                    onclick="showRoleTab('members')"
+                                    id="manageMembersBtn"
+                                >
+                                    Manage Members (0)
+                                </button>
+                            </div>
+
+                            <div id="displayTab" class="role-tab-content">
+                                <div class="role-name-section">
+                                    <label class="role-label">
+                                        Role name
+                                        <span
+                                            class="role-label-required"
+                                            aria-hidden="true"
+                                            >*</span
+                                        >
+                                    </label>
+                                    <div class="role-name-input">
+                                        <span
+                                            class="role-icon-placeholder"
+                                            id="roleIconDisplay"
+                                        ></span>
+                                        <input
+                                            type="text"
+                                            id="roleNameInput" disabled
+                                            value="Owner"
+                                            class="role-name-field"
+                                        />
+                                    </div>
+                                </div>
+
+                                <div class="role-style-section">
+                                    <label class="role-label">
+                                        Role Style
+                                    </label>
+                                    <div class="role-style-button">
+                                        <img
+                                            src="assets/role-edit-solid-gui.png"
+                                            alt="Role Solid Style"
+                                            class="role-style-icon"
+                                        />
+                                        <img
+                                            src="assets/role-edit-gradiant-gui.png"
+                                            alt="Role Gradiant Style"
+                                            class="role-style-icon"
+                                        />
+                                        <img
+                                            src="assets/role-edit-holographic-gui.png"
+                                            alt="Role Holographic Style"
+                                            class="role-style-icon"
+                                        />
+                                    </div>
+                                </div>
+
+                                <div class="role-color-section">
+                                    <label class="role-label"
+                                        >Role color
+                                        <span
+                                            class="role-label-required"
+                                            aria-hidden="true"
+                                            >*</span
+                                        >
+                                    </label>
+                                    <div class="role-color-description">
+                                        Members use the color of the highest
+                                        role they have in the role list.
+                                    </div>
+
+                                    <!-- Mode SOLID -->
+                                    <div class="color-mode-container solid-mode" id="solidColorMode">
+                                        <div class="default-color-block">
+                                            <img
+                                                src="assets/confirm-icon.png"
+                                                alt="Confirm Icon"
+                                                class="default-color-icon"
+                                            />
+                                        </div>
+
+                                        <div class="color-selector-block">
+                                            <img
+                                                src="assets/edit-role-icon.png"
+                                                alt="Selector Icon"
+                                                class="color-selector-icon"
+                                            />
+                                        </div>
+
+                                        <!-- WRAPPER qu'il te manque -->
+                                        <div class="solid-color-wrapper">
+                                            <div class="solid-color-selector">
+                                                <div class="color-block" style="background-color: #1abc9c;"></div>
+                                                <div class="color-block" style="background-color: #2ecc71;"></div>
+                                                <div class="color-block" style="background-color: #3498db;"></div>
+                                                <div class="color-block" style="background-color: #9b59b6;"></div>
+                                                <div class="color-block" style="background-color: #e91e63;"></div>
+                                                <div class="color-block" style="background-color: #f1c40f;"></div>
+                                                <div class="color-block" style="background-color: #e67e22;"></div>
+                                                <div class="color-block" style="background-color: #e74c3c;"></div>
+                                                <div class="color-block" style="background-color: #95a5a6;"></div>
+                                                <div class="color-block" style="background-color: #607d8b;"></div>
+                                            </div>
+
+                                            <div class="solid-color-selector">
+                                                <div class="color-block" style="background-color: #11806a;"></div>
+                                                <div class="color-block" style="background-color: #2ecc71;"></div>
+                                                <div class="color-block" style="background-color: #206694;"></div>
+                                                <div class="color-block" style="background-color: #71368a;"></div>
+                                                <div class="color-block" style="background-color: #ad1457;"></div>
+                                                <div class="color-block" style="background-color: #c27c0e;"></div>
+                                                <div class="color-block" style="background-color: #a84300;"></div>
+                                                <div class="color-block" style="background-color: #992d22;"></div>
+                                                <div class="color-block" style="background-color: #979c9f;"></div>
+                                                <div class="color-block" style="background-color: #546e7a;"></div>
+                                            </div>
+                                        </div>
+                                    </div>
+
+
+                                    <!-- Mode GRADIENT -->
+                                    <div class="color-mode-container gradient-mode hidden" id="gradientColorMode">
+                                        <div class="gradient-editor">
+                                            <div class="gradient-preview" id="gradientPreview">
+                                                <button class="gradient-color-picker left" id="gradientColorLeft">
+                                                    <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor">
+                                                        <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-4.41 0-8-3.59-8-8s3.59-8 8-8 8 3.59 8 8-3.59 8-8 8z"/>
+                                                    </svg>
+                                                </button>
+                                                <button class="gradient-color-picker right" id="gradientColorRight">
+                                                    <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor">
+                                                        <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-4.41 0-8-3.59-8-8s3.59-8 8-8 8 3.59 8 8-3.59 8-8 8z"/>
+                                                    </svg>
+                                                </button>
+                                            </div>
+                                        </div>
+                                        <div class="gradient-palette">
+                                            <div class="gradient-swatch" data-gradient1="#c9184a" data-gradient2="#ff4d6d"></div>
+                                            <div class="gradient-swatch" data-gradient1="#ff6b35" data-gradient2="#f7b801"></div>
+                                            <div class="gradient-swatch" data-gradient1="#06ffa5" data-gradient2="#00d9ff"></div>
+                                            <div class="gradient-swatch" data-gradient1="#4cc9f0" data-gradient2="#4361ee"></div>
+                                            <div class="gradient-swatch" data-gradient1="#7209b7" data-gradient2="#b5179e"></div>
+                                            <div class="gradient-swatch" data-gradient1="#f72585" data-gradient2="#ffd60a"></div>
+                                            <div class="gradient-swatch" data-gradient1="#b79ced" data-gradient2="#eebefa"></div>
+                                            <div class="gradient-swatch" data-gradient1="#f4a261" data-gradient2="#e76f51"></div>
+                                            <div class="gradient-swatch" data-gradient1="#4cc9f0" data-gradient2="#560bad"></div>
+                                            <div class="gradient-swatch" data-gradient1="#06ffa5" data-gradient2="#fffb46"></div>
+                                            <div class="gradient-swatch" data-gradient1="#7209b7" data-gradient2="#480ca8"></div>
+                                            <div class="gradient-swatch" data-gradient1="#f72585" data-gradient2="#b5179e"></div>
+                                        </div>
+                                    </div>
+
+                                    <!-- Mode HOLOGRAPHIC -->
+                                    <div class="color-mode-container holographic-mode hidden" id="holographicColorMode">
+                                        <div class="holographic-info">
+                                            <svg width="20" height="20" viewBox="0 0 24 24" fill="#5865f2">
+                                                <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm1 15h-2v-6h2v6zm0-8h-2V7h2v2z"/>
+                                            </svg>
+                                            <span>The "Holographic" role style doesn't require you to select any colors.</span>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="role-icon-section">
+                                    <label class="role-label"
+                                        >Role icon
+                                        </label
+                                    >
+                                    <div class="role-icon-description">
+                                        Upload an image under 256 KB or pick a custom emoji from this server. We recommend at least 64x64 pixels. Members will see the icon for their highest role if they have multiple roles.
+                                    </div>
+                                    <div class="choose-image-container">
+                                        <div class="choose-image-block">
+                                            <img
+                                                src="assets/add-picture-icon.png"
+                                                alt="Add Picture"
+                                                class="choose-image-icon"
+                                            />
+                                        </div>
+                                        <button class="choose-image-btn">
+                                            Choose Image
+                                        </button>
+                                    </div>
+                                </div>
+
+                                <div class="role-settings">
+                                    <div class="setting-item">
+                                        <div class="setting-content">
+                                            <div class="setting-label">
+                                                Display role members separately
+                                                from online members
+                                            </div>
+                                        </div>
+                                        <div
+                                            class="toggle-switch active"
+                                            id="displaySeparatelyToggle"
+                                        >
+                                            <div class="toggle-slider"></div>
+                                        </div>
+                                    </div>
+
+                                    <div class="setting-item">
+                                        <div class="setting-content">
+                                            <div class="setting-label">
+                                                Allow anyone to @mention this
+                                                role
+                                            </div>
+                                            <div class="setting-description">
+                                                Note: Members with the "Mention @everyone, @here, and All Roles" permission will always be able to ping this role.
+                                            </div>
+                                        </div>
+                                        <div
+                                            class="toggle-switch"
+                                            id="mentionableToggle"
+                                        >
+                                            <div class="toggle-slider"></div>
+                                        </div>
+                                    </div>
+
+                                    <div class="setting-item">
+                                        <div class="setting-content">
+                                            <div class="setting-label">
+                                                View server as Role
+                                            </div>
+                                            <div class="setting-description">
+                                                This will let you test what actions this role can take and what channels it can see. Only available to Server Owners and Admins.
+                                            </di
+                                                v>
+                                            <button class="view-as-role-btn">
+                                                View server as Role
+                                                <img
+                                                    src="assets/next-button-icon.png"
+                                                    alt="View as Role"
+                                                    class="view-as-role-icon"
+                                            </button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div
+                                class="settings-close-wrapper"
+                                onclick="hideServerSettings(), closeRoleEditModal()"
+                            >
+                                <img
+                                    src="assets/close-button-icon.png"
+                                    class="settings-close"
+                                    alt="Close Button"
+                                />
+                                <div class="settings-close-text">ESC</div>
+                            </div>
+
+                            <div
+                                id="permissionsTab"
+                                class="role-tab-content hidden"
+                            >
+                                <div class="permissions-search">
+                                    <div class="permissions-search-wrapper">
+                                        <img
+                                            src="assets/searchbaricon.png"
+                                            alt="Search Icon"
+                                            class="permissions-search-icon"
+                                        />
+                                        <input
+                                            type="text"
+                                            placeholder="Search permissions"
+                                        />
+                                    </div>
+                                </div>
+
+                                <!-- Container principal pour toutes les permissions -->
+                                <div
+                                    class="permissions-list"
+                                    id="permissionsList"
+                                >
+                                    <!-- Les permissions seront ajoutées ici dynamiquement -->
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </body>
+</html>
